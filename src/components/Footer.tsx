@@ -52,6 +52,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
                 <Link href="/installer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Installer
                 </Link>

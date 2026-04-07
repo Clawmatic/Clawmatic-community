@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ArrowRight, Download, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Check } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'OpenClaw Skill Packs',
@@ -46,6 +47,29 @@ const packs = [
   },
 ];
 
+const faqs = [
+  {
+    q: 'What exactly is a skill pack?',
+    a: 'A set of ready-made OpenClaw skill files (.md format) that you install with a single command. Each skill teaches your AI agent to do something specific — triage email, manage your calendar, search the web, and so on. No configuration needed, they work out of the box.',
+  },
+  {
+    q: 'How do I install a skill pack?',
+    a: 'One command in your terminal: openclaw skills install clawmatic-[pack-name]\nFull instructions are included with every pack.',
+  },
+  {
+    q: 'Do I need an API key to use skill packs?',
+    a: "Yes — skill packs work with any OpenClaw setup. If you don't have an API key yet, check out our packages — they include a pre-configured key with credits, fully set up by us.",
+  },
+  {
+    q: "What's the difference between a pack and a package?",
+    a: 'Packages (/packages) are complete done-for-you setups — we handle your API key, config, and everything else. Skill packs are the skill files themselves, for people who are already set up and want to extend what OpenClaw can do.',
+  },
+  {
+    q: "What's the difference between individual packs and ClawMatic Pro?",
+    a: 'Pro gives you every skill pack (current and future) plus priority support, early access to guides, and monthly office hours — all for €5/month. If you think you\'ll want more than one pack, Pro is better value.',
+  },
+];
+
 export default function ToolkitPage() {
   return (
     <div className="min-h-screen bg-background">
@@ -68,6 +92,56 @@ export default function ToolkitPage() {
               <Package className="h-3.5 w-3.5" />
               Drop into OpenClaw
             </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing section: Individual packs vs ClawMatic Pro */}
+      <section className="py-12 border-b border-border/50">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Individual packs */}
+            <div className="rounded-xl border border-border/50 bg-card p-8 flex flex-col">
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">One-time purchase</p>
+              <h2 className="text-2xl font-bold mb-3">Individual packs</h2>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                Buy only what you need. Each pack is a set of ready-to-install OpenClaw skill files for a specific use case. Install in one command, works immediately.
+              </p>
+              <p className="text-2xl font-bold text-foreground mt-auto">From €19 <span className="text-base font-normal text-muted-foreground">per pack</span></p>
+            </div>
+
+            {/* ClawMatic Pro */}
+            <div className="rounded-xl border border-primary/30 bg-primary/5 p-8 flex flex-col relative">
+              <span className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold">
+                Recommended
+              </span>
+              <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-3">Monthly membership</p>
+              <h2 className="text-2xl font-bold mb-1">ClawMatic Pro</h2>
+              <p className="text-3xl font-bold text-primary mb-4">€5 <span className="text-base font-normal text-muted-foreground">/ month</span></p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                All skill packs included. Priority support. Early access to new guides and the installer. The best way to get the most out of OpenClaw.
+              </p>
+              <ul className="space-y-2 mb-8">
+                {[
+                  'All current and future skill packs',
+                  'Priority Discord support — responses within 24h',
+                  'Early access to new guides before they go public',
+                  'First access to the one-click installer at launch',
+                  'Monthly office hours — live Q&A call with ClawMatic',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Button variant="hero" asChild className="w-full mt-auto">
+                {/* TODO: replace with Gumroad subscription link */}
+                <a href="#">
+                  Join ClawMatic Pro <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -103,6 +177,19 @@ export default function ToolkitPage() {
                 </Button>
               </div>
             ))}
+          </div>
+
+          {/* FAQ */}
+          <div className="mt-16 max-w-3xl mx-auto">
+            <h2 className="text-xl font-bold mb-8">Frequently asked questions</h2>
+            <div className="space-y-6">
+              {faqs.map((faq) => (
+                <div key={faq.q} className="border-b border-border/50 pb-6">
+                  <p className="font-semibold text-sm mb-2">{faq.q}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{faq.a}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

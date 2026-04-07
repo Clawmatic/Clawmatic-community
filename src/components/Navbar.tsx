@@ -12,7 +12,9 @@ const navLinks = [
   { label: "Guides", href: "/guides" },
   { label: "Packages", href: "/packages" },
   { label: "Toolkit", href: "/toolkit" },
+  { label: "Find my stack", href: "/quiz" },
   { label: "Installer", href: "/installer" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Navbar() {
