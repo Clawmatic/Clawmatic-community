@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
   title: 'About ClawMatic Community',
-  description: 'The unofficial hub for OpenClaw AI users. Free guides, curated model setups, skill packs, and a growing community of builders — built in Belgium.',
+  description: 'The unofficial hub for OpenClaw AI users. Free guides, curated model setups, skill packs, and a growing community of builders.',
 };
 
 export default function AboutPage() {
@@ -18,7 +18,7 @@ export default function AboutPage() {
             About
           </span>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-5">
-            Built in Belgium. Built for OpenClaw users.
+            Built for OpenClaw users.
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
             ClawMatic Community is the unofficial hub for OpenClaw AI — free guides, curated model setups, skill packs, and a growing community of builders figuring it out together.
@@ -31,7 +31,7 @@ export default function AboutPage() {
           <div className="space-y-10">
             <div>
               <p className="text-base text-muted-foreground leading-relaxed">
-                This is a solo project from Belgium 🇧🇪, built openly and not affiliated with OpenClaw Inc. Feedback from the community drives what gets built next.
+                This is a solo project, built openly and not affiliated with OpenClaw Inc. Feedback from the community drives what gets built next.
               </p>
             </div>
 

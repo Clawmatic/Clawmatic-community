@@ -19,8 +19,6 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
               The unofficial hub for OpenClaw AI users.
               <br />
-              <span className="mt-1 inline-block">🇧🇪 Made in Belgium</span>
-              <br />
               <span className="text-xs text-muted-foreground/50">Not affiliated with OpenClaw Inc.</span>
             </p>
           </div>
