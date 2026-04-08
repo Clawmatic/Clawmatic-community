@@ -146,7 +146,7 @@ export default function PackagesPage() {
       {/* Packages */}
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
             {packages.map((pkg) => (
               <div
                 key={pkg.id}
@@ -181,9 +181,9 @@ export default function PackagesPage() {
                   </ul>
                 </div>
                 <p className="text-xs text-muted-foreground/70 leading-relaxed mb-6 italic">{pkg.creditsNote}</p>
-                <Button variant={pkg.highlight ? 'hero' : 'hero-outline'} asChild className="w-full">
-                  <a href={pkg.gumroadUrl} target="_blank" rel="noopener noreferrer">
-                    {pkg.buttonText} <ArrowRight className="ml-1 h-4 w-4" />
+                <Button variant={pkg.highlight ? 'hero' : 'hero-outline'} asChild className="w-full whitespace-normal h-auto py-2.5">
+                  <a href={pkg.gumroadUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1">
+                    <span className="text-center">{pkg.buttonText}</span> <ArrowRight className="h-4 w-4 flex-shrink-0" />
                   </a>
                 </Button>
                 <p className="text-xs text-muted-foreground/60 text-center mt-3">We personally configure everything within 24 hours of purchase.</p>
