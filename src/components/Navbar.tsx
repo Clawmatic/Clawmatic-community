@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Zap, Menu, X } from "lucide-react";
@@ -22,7 +22,20 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+    <>
+      {/* Cross-site banner */}
+      <div className="fixed top-0 left-0 right-0 z-[60] bg-primary/10 border-b border-primary/20">
+        <div className="container mx-auto px-4 py-1.5 flex items-center justify-center gap-4 text-xs">
+          <span className="text-muted-foreground">You're on ClawMatic Community</span>
+          <a 
+            href="https://clawmatic.eu" 
+            className="text-primary hover:text-primary/80 font-medium inline-flex items-center gap-1 transition-colors"
+          >
+            Go to Business →
+          </a>
+        </div>
+      </div>
+      <nav className="fixed top-[32px] left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
           <Zap className="h-5 w-5 text-primary" />
@@ -87,5 +100,6 @@ export default function Navbar() {
         </div>
       )}
     </nav>
+    </>
   );
 }
