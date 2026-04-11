@@ -16,6 +16,7 @@ const packages = [
     price: '€29',
     bestFor: 'Marketers, content creators, freelance writers',
     description: 'The perfect AI setup for anyone who writes for a living.',
+    notFor: 'heavy research or data tasks',
     includes: [
       'Pre-loaded OpenRouter API key (€10 credits included)',
       'Pre-configured model setup — best model for writing, drop-in ready',
@@ -35,6 +36,7 @@ const packages = [
     price: '€39',
     bestFor: 'Small businesses, e-commerce, service businesses',
     description: 'Build a support bot that actually helps your customers.',
+    notFor: 'personal or solo use — this one needs an audience to respond to',
     includes: [
       'Pre-loaded OpenRouter API key (€15 credits included)',
       'Pre-configured model setup — best model for Q&A and support',
@@ -56,6 +58,7 @@ const packages = [
     price: '€34',
     bestFor: 'Consultants, analysts, researchers, students',
     description: 'Deep research, faster. The right model, set up the right way.',
+    notFor: 'quick creative tasks or writing',
     includes: [
       'Pre-loaded OpenRouter API key (€12 credits included)',
       'Pre-configured model setup — best model for reasoning and analysis',
@@ -112,7 +115,7 @@ export default function PackagesPage() {
             Stop guessing. Use the right model.
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            OpenRouter gives you access to dozens of AI models. The problem? Choosing the right one is overwhelming. We&apos;ve done the research — these packages tell you exactly which model to use, how to set it up in OpenClaw, and how to get the best results.
+            OpenRouter gives you access to dozens of AI models. Most people pick the wrong one. These packages tell you exactly which one to use for your workflow, how to configure it in OpenClaw, and how to get real results out of it — without the trial and error.
           </p>
         </div>
       </section>
@@ -126,7 +129,7 @@ export default function PackagesPage() {
               {[
                 { n: '1', t: 'You buy a package', d: 'Pick the stack that fits your use case.' },
                 { n: '2', t: 'We configure everything', d: "Within 24h we set up your API key, load credits, and prepare your config." },
-                { n: '3', t: 'Paste and go', d: "You receive everything by email. Paste your key and you're running AI in under 15 minutes." },
+                { n: '3', t: 'Paste and go', d: "You receive everything by email. Paste your key and you're running AI in under 15 minutes. No terminal required. No API docs to read." },
               ].map((step) => (
                 <div key={step.n} className="flex gap-3">
                   <span className="w-7 h-7 rounded-full border border-primary/40 bg-primary/10 flex items-center justify-center text-primary text-xs font-bold flex-shrink-0">
@@ -151,7 +154,7 @@ export default function PackagesPage() {
               <div
                 key={pkg.id}
                 className={`rounded-xl border p-7 flex flex-col card-hover ${
-                  pkg.highlight ? 'border-primary/30 bg-primary/5 relative' : 'border-border/50 bg-card'
+                  pkg.highlight ? 'border-primary/40 bg-primary/10 relative scale-[1.02] shadow-lg shadow-primary/10' : 'border-border/50 bg-card'
                 }`}
               >
                 {pkg.highlight && (
@@ -164,8 +167,11 @@ export default function PackagesPage() {
                     <h2 className="text-lg font-bold">{pkg.name}</h2>
                     <span className={`text-xl font-bold flex-shrink-0 ${pkg.highlight ? 'text-primary' : 'text-foreground'}`}>{pkg.price}</span>
                   </div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-muted-foreground mb-1.5">
                     <strong className="text-foreground/70">Best for:</strong> {pkg.bestFor}
+                  </p>
+                  <p className="text-xs text-muted-foreground/80">
+                    <strong className="text-foreground/70">Not for:</strong> {pkg.notFor}
                   </p>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">{pkg.description}</p>

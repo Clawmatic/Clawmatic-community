@@ -169,6 +169,12 @@ export default function QuizClient() {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center pt-16">
       <div className="container mx-auto px-4 sm:px-6 max-w-xl py-16">
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">Find your ideal AI stack</h1>
+          <p className="text-sm text-muted-foreground max-w-md mx-auto">
+            5 questions. Takes 2 minutes. Get a personalised recommendation with setup instructions.
+          </p>
+        </div>
         <div className="mb-10">
           <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
             <span>Step {step + 1} of {steps.length}</span>

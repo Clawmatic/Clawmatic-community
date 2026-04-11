@@ -60,10 +60,10 @@ export default function GuidesPage() {
           <p className="text-lg text-muted-foreground max-w-xl">
             Setup tutorials, skill walkthroughs, and tips for getting the most out of OpenClaw AI.
           </p>
-          <div className="flex gap-6 mt-8 text-sm">
+          <div className="flex gap-6 mt-8 text-sm flex-wrap">
             <span><strong className="text-primary">{guides.length}</strong> <span className="text-muted-foreground">guides</span></span>
-            <span><strong className="text-primary">Free</strong> <span className="text-muted-foreground">always</span></span>
-            <span><strong className="text-primary">New</strong> <span className="text-muted-foreground">guide every week</span></span>
+            <span><strong className="text-primary">Always</strong> <span className="text-muted-foreground">free</span></span>
+            <span><strong className="text-primary">More</strong> <span className="text-muted-foreground">coming</span></span>
           </div>
         </div>
       </section>
@@ -90,8 +90,13 @@ export default function GuidesPage() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {filtered.map((guide) => (
-              <article key={guide.slug} className="group rounded-xl border border-border/50 bg-card p-6 flex flex-col card-hover">
+              <article key={guide.slug} className={`group rounded-xl border p-6 flex flex-col card-hover ${guide.slug === 'how-to-install-openclaw' ? 'border-primary/30 bg-primary/5' : 'border-border/50 bg-card'}`}>
                 <div className="flex flex-wrap gap-2 mb-4">
+                  {guide.slug === 'how-to-install-openclaw' && (
+                    <span className="text-xs px-2.5 py-1 rounded-full border border-primary/30 bg-primary text-primary-foreground font-medium">
+                      Start here →
+                    </span>
+                  )}
                   {guide.tags.map((tag) => (
                     <span key={tag} className="text-xs px-2.5 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary font-medium">
                       {tag}
@@ -120,8 +125,8 @@ export default function GuidesPage() {
           )}
 
           <div className="text-center mt-12 py-8 border border-dashed border-border/50 rounded-xl max-w-lg mx-auto">
-            <p className="text-sm text-muted-foreground mb-2">More guides coming soon. Got a topic?</p>
-            <a href="mailto:info@clawmatic.eu" className="text-sm text-primary hover:underline">Suggest a guide →</a>
+            <p className="text-sm text-muted-foreground mb-2">More guides dropping weekly. Have a topic in mind?</p>
+            <a href="mailto:info@clawmatic.eu" className="text-sm text-primary hover:underline">Suggest one →</a>
           </div>
         </div>
       </section>

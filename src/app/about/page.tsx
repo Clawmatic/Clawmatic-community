@@ -31,7 +31,7 @@ export default function AboutPage() {
           <div className="space-y-10">
             <div>
               <p className="text-base text-muted-foreground leading-relaxed">
-                This is a solo project, built openly and not affiliated with OpenClaw Inc. Feedback from the community drives what gets built next.
+                This is a solo project, built openly and not affiliated with OpenClaw Inc. Feedback from the community drives what gets built next. I&apos;m Robin — based in Belgium, building this alongside the ClawMatic agency. If you find something broken or missing, I want to know.
               </p>
             </div>
 
@@ -44,20 +44,20 @@ export default function AboutPage() {
 
             <div>
               <h2 className="text-xl font-bold mb-4">What&apos;s here</h2>
-              <ul className="space-y-3">
+              <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  'Free guides for every skill level',
-                  'Curated AI stack packages with API key included — done for you',
-                  'Skill packs that drop straight into OpenClaw',
-                  'A Discord community for questions, help, and showing your builds',
-                  'A one-click installer coming soon',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-2" />
-                    {item}
-                  </li>
+                  ['Free guides', 'For every skill level'],
+                  ['AI stack packages', 'API key included, done for you'],
+                  ['Skill packs', 'Drop into OpenClaw, they work'],
+                  ['Discord', 'Questions, help, and showing your builds'],
+                  ['Installer', 'Coming soon, one-click setup'],
+                ].map(([title, body]) => (
+                  <div key={title} className="rounded-xl border border-border/50 bg-card p-5">
+                    <p className="text-sm font-semibold mb-1">{title}</p>
+                    <p className="text-sm text-muted-foreground">{body}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">

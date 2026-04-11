@@ -12,23 +12,30 @@ const tiles = [
   {
     icon: BookOpen,
     title: "Free guides",
-    desc: "Setup tutorials, skill walkthroughs, and tips.",
+    desc: "Setup tutorials, skill walkthroughs, and tips — written for real humans, not developers.",
     href: "/guides",
     cta: "Browse guides",
   },
   {
     icon: Package,
     title: "AI stack packages",
-    desc: "The right model, configured for you. API key included.",
+    desc: "Stop guessing which AI model to use. We pick the right one for your use case, set it up, and send you a ready-to-paste config.",
     href: "/packages",
     cta: "View packages",
   },
   {
     icon: Puzzle,
     title: "Skill packs",
-    desc: "Ready-made skills that drop straight into OpenClaw.",
+    desc: "Pre-built skills for productivity, research, writing, and support. Drop them in, they work.",
     href: "/toolkit",
     cta: "Browse skill packs",
+  },
+  {
+    icon: MessageSquare,
+    title: "Join the community",
+    desc: "A growing Discord of builders figuring this out together. Ask anything — someone's already done it.",
+    href: DISCORD_URL,
+    cta: "Join the community",
   },
 ];
 
@@ -56,8 +63,7 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            Everything you need to get the most{" "}
-            <span className="gradient-text">out of OpenClaw AI.</span>
+            The fastest way to get <span className="gradient-text">OpenClaw actually working.</span>
           </motion.h1>
 
           <motion.p
@@ -66,7 +72,7 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
           >
-            Free guides, curated AI model setups, skill packs, and a community of builders. All in one place.
+            Free setup guides, curated AI model stacks, ready-made skill packs, and a community of builders. No fluff — just what works.
           </motion.p>
 
           <motion.div
@@ -84,9 +90,20 @@ export default function HomePage() {
             <Button variant="hero-outline" size="lg" asChild className="text-base px-8 py-6 min-w-[200px]">
               <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer">
                 <MessageSquare className="mr-1.5 h-4 w-4" />
-                Join the Discord
+                Join the community →
               </a>
             </Button>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-wrap justify-center gap-6 mt-8 text-sm"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+          >
+            <span><strong className="text-primary">5</strong> <span className="text-muted-foreground">free guides</span></span>
+            <span><strong className="text-primary">3</strong> <span className="text-muted-foreground">AI stack packages</span></span>
+            <span><strong className="text-primary">150k+</strong> <span className="text-muted-foreground">OpenClaw installs worldwide</span></span>
           </motion.div>
         </div>
       </section>
@@ -94,7 +111,7 @@ export default function HomePage() {
       {/* Feature tiles */}
       <section className="py-20 border-t border-border/40">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {tiles.map((tile, i) => (
               <motion.div
                 key={tile.title}
@@ -109,9 +126,15 @@ export default function HomePage() {
                 </div>
                 <h2 className="text-lg font-bold mb-2">{tile.title}</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">{tile.desc}</p>
-                <Link href={tile.href} className="inline-flex items-center gap-1 text-sm text-primary hover:text-primary/80 font-medium transition-colors">
-                  {tile.cta} <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
+                {tile.href.startsWith('http') ? (
+                  <a href={tile.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-primary hover:text-primary/80 font-medium transition-colors">
+                    {tile.cta} <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                ) : (
+                  <Link href={tile.href} className="inline-flex items-center gap-1 text-sm text-primary hover:text-primary/80 font-medium transition-colors">
+                    {tile.cta} <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>
@@ -156,8 +179,8 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
           >
             <EmailCapture
-              heading="Get notified when the installer launches"
-              subheading="Plus weekly OpenClaw tips, new guides, and skill pack updates."
+              heading="Weekly OpenClaw tips, straight to your inbox."
+              subheading="New guides, skill pack releases, model recommendations, and community highlights — every week. Free."
               finePrint="No spam. Unsubscribe anytime."
             />
           </motion.div>

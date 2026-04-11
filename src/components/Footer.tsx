@@ -45,8 +45,8 @@ export default function Footer() {
             <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">Community</p>
             <ul className="space-y-2.5">
               <li>
-                <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Discord
+                <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md border border-primary/20 bg-primary/5 px-3 py-1.5 text-sm font-medium text-primary hover:bg-primary/10 transition-colors">
+                  Join Discord
                 </a>
               </li>
               <li>

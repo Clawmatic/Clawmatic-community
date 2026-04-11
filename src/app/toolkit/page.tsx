@@ -83,6 +83,9 @@ export default function ToolkitPage() {
           <p className="text-lg text-muted-foreground leading-relaxed">
             Ready-made skills you can drop straight into OpenClaw. Tested, documented, and ready to use.
           </p>
+          <p className="text-sm text-muted-foreground/75 leading-relaxed mt-4">
+            One pack available now, three more in development. New packs release monthly.
+          </p>
           <div className="flex items-center gap-3 mt-5">
             <span className="inline-flex items-center gap-1.5 text-xs text-primary border border-primary/20 bg-primary/5 rounded-full px-3 py-1.5">
               <Download className="h-3.5 w-3.5" />
@@ -160,7 +163,12 @@ export default function ToolkitPage() {
                   <h2 className="text-base font-bold leading-snug pr-2">{pack.name}</h2>
                   <span className="text-lg font-bold text-primary flex-shrink-0">{pack.price}</span>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{pack.description}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{pack.description}</p>
+                {!pack.comingSoon && (
+                  <p className="text-xs text-muted-foreground/80 mb-5 leading-relaxed">
+                    What you&apos;ll be able to do: Triage your inbox, schedule follow-ups, and manage your task list — all without touching your keyboard.
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   {pack.tags.map((tag) => (
                     <span key={tag} className="text-xs px-2 py-0.5 rounded border border-border/50 text-muted-foreground">{tag}</span>
