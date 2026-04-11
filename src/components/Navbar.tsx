@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Fragment } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Zap, Menu, X } from "lucide-react";
@@ -19,12 +19,27 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(true);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setBannerVisible(window.scrollY < 24);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
       {/* Cross-site banner */}
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-primary/10 border-b border-primary/20">
+      <div
+        className={`fixed top-0 left-0 right-0 z-[60] bg-primary/10 border-b border-primary/20 transition-transform duration-300 ${
+          bannerVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
         <div className="container mx-auto px-4 py-1.5 flex items-center justify-center gap-4 text-xs">
           <span className="text-muted-foreground">You're on ClawMatic Community</span>
           <a 
@@ -35,7 +50,7 @@ export default function Navbar() {
           </a>
         </div>
       </div>
-      <nav className="fixed top-[32px] left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+      <nav className={`fixed left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl transition-all duration-300 ${bannerVisible ? "top-[32px]" : "top-0"}`}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
           <Zap className="h-5 w-5 text-primary" />

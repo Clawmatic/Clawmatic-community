@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Zap } from 'lucide-react';
+import EmailCapture from '@/components/EmailCapture';
 
 const DISCORD_URL = process.env.NEXT_PUBLIC_DISCORD_URL || 'https://discord.gg/7p3PVFq3';
 
@@ -7,6 +8,12 @@ export default function Footer() {
   return (
     <footer className="border-t border-border/50 bg-background mt-auto">
       <div className="container mx-auto px-4 sm:px-6 py-12">
+        <div className="rounded-2xl border border-border/50 bg-card p-8 sm:p-10 mb-10">
+          <div className="max-w-2xl mx-auto">
+            <EmailCapture />
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-10">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
@@ -19,7 +26,7 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
               The unofficial hub for OpenClaw AI users.
               <br />
-              <span className="text-xs text-muted-foreground/50">Not affiliated with OpenClaw Inc.</span>
+              <span className="text-xs text-muted-foreground/50">Independent community project. Not affiliated with OpenClaw Inc.</span>
             </p>
           </div>
 

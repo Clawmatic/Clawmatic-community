@@ -12,8 +12,8 @@ interface EmailCaptureProps {
 }
 
 export default function EmailCapture({
-  heading = "Get notified when the one-click installer launches",
-  subheading = "Plus weekly OpenClaw tips, model updates, and new skill packs.",
+  heading = "Weekly OpenClaw tips, straight to your inbox.",
+  subheading = "New guides, skill pack releases, model recommendations, and community highlights — every week. Free.",
   finePrint = "No spam. Unsubscribe anytime.",
   className = "",
 }: EmailCaptureProps) {
@@ -54,7 +54,7 @@ export default function EmailCapture({
       {status === "success" ? (
         <div className="flex items-center justify-center gap-2 text-primary font-medium">
           <CheckCircle2 className="h-5 w-5" />
-          You&apos;re on the list — we&apos;ll be in touch!
+          You&apos;re subscribed — welcome to ClawMatic Community.
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
@@ -67,7 +67,7 @@ export default function EmailCapture({
             className="flex-1 rounded-lg border border-border/50 bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50"
           />
           <Button type="submit" variant="hero" disabled={status === "loading"} className="whitespace-nowrap">
-            {status === "loading" ? "..." : "Notify me"}
+            {status === "loading" ? "..." : "Subscribe"}
             {status !== "loading" && <ArrowRight className="ml-1 h-4 w-4" />}
           </Button>
         </form>
